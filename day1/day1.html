@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스터디 1일차</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- expression -->
+        <h2>{{ msg }}</h2>
+        <!-- v-html : 데이터 내부에 html태그가 있어도 적용 -->
+        <!-- 자바스크립트의 변수를 호출하기 위해서 ${}와 백틱을 사용 가능 -->
+        <p v-html=`${msg2}`></p>        
+        <!-- v-model : 양방향성 속성 -->
+        <!-- 지정된 el에 있는 값을 모두 변경 -->
+        <input type="text" v-model="msg">
+
+        <!-- 속성의 값을 바인딩으로 적용가능 -->
+        <div v-bind:id="idValue">바인딩</div>
+        <!-- v-bind는 생략가능  -->
+        <div :id="idValue">바인딩2</div>
+        <!-- 속성의 키를 변경 :[]를 사용 -->
+        <div :[prop]="idValue">속성명, 값 동적변경</div>
+        <br>
+        <br>
+
+        <!-- v-model로 동적연결된 값을 조건문 적용 -->
+        값을 입력 : <input type="text" v-model="value">
+        <div v-if="value < 10"> 10보다 작은 값</div>
+        <div v-else-if="value < 20">20보다 작은 값</div>
+        <div v-else>작은 값</div>
+        <br>
+        <br>
+
+        <!-- 반복문수행 -->
+        <!-- v-for에는 렌더링 속도 향상을 위해 key를 항상 지정 -->
+        <ul>
+            <li v-for="(data, index) in data1" :key="data.id">
+                {{index+1}} : {{data.id}} : {{data.val}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el : '#app',
+            data() {
+                return {
+                    prop : 'id',
+                    msg : 'Hello Vue.js!!',
+                    msg2 : 'Hello<h2>hello</h2>Hello',
+                    idValue : 'test-id',
+                    value : 10,
+                    data1 : [
+                        {id:'aaa',val:123},
+                        {id:'bbb',val:456}
+                    ]
+                }
+            },
+            beforeCreate() {
+                // Vue 인스턴스가 생성되고 정보 설정전에 호출
+                console.log("beforeCreate method call")
+            },
+            created() {
+                // 데이터 설정이 완료된 후 호출
+                // 인스턴스가 화면에 적용되기 이전
+                console.log("created method call")
+            },
+            mounted() {
+                // 지정된 요소에 인스턴스가 마운트 된 후 호출
+                console.log("mounted method call")
+            },
+            updated() {
+                // Vue가 관리하는 데이터가 변경된 후 호출
+                console.log("updated method call")
+            }
+        })
+    </script>
+</body>
+</html>
