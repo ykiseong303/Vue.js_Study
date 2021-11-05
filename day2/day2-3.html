@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        백틱 활용하기
+     -->
+
+    <div id="app">
+        <!-- 
+            백틱 영역은 문자열로 인식
+            그 영역안에서 ${}로 자바스크립트의 변수에 접근할 수 있음
+
+            여기서는 v-text 속성의 value로 " " 내부의 스트링이 들어가고,
+            그 value 중 ${}를 통해 vue의 data로 지정한 msg에 접근 
+         -->
+        <div v-text="`msg : ${msg}`"></div>
+
+    </div>
+    <script>
+        new Vue({
+            el : '#app',
+            data() {
+                return {
+                    msg : '백틱은 골치아픈 것..',
+                }
+            }
+        })
+    </script>
+</body>
+</html>

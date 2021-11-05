@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        자바스크립트 객체를 vue에서 끌어쓰기 
+     -->
+
+    <div id="app">
+        <ul>
+            <!-- 받아온 객체를 반복문을 통해 빼오기 -->
+            <li v-for="(data, index) in vue_data" :key="data.id">
+                {{ data.id }} : {{ data.name }}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var jsobject = [
+            {
+                "id" : "aaa",
+                "name" : "bbb"
+            },
+            {
+                "id" : "ccc",
+                "name" : "ddd"
+            }
+        ]
+        // console.log(jsobject)
+        myVue = new Vue({
+            el : '#app',
+            data() {
+                return {
+                    vue_data : jsobject,
+                }
+            }
+        })
+        console.log(myVue.vue_data[0])
+    </script>
+</body>
+</html>
