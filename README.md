@@ -11,3 +11,6 @@
   + Vue 인스턴스의 속성 
   + Vue directive
   + Vue life cycle hook
++ 2일차(21.11.05)
+  + @click
+  + methods
