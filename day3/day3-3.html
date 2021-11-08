@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body> 
+    <!-- 
+        component 및 모둘화사용
+    -->
+    <div id="app">
+        <count v-on:send-count="addPCount"></count>
+        <br>
+        parent Vue의 카운트 : {{ total }}
+    </div>
+    <script type="module">
+        import Count from './component/day3-3.js';
+        new Vue ({
+            el : '#app',
+            data : {
+                total : 0,
+            },
+            components : {
+                Count
+            },
+            // created() {
+            //     this.$on('sendCount',() => {
+            //         alert("Dsad")
+            //         addPCount();
+            //     });
+            // },
+            methods : {
+                addPCount() {
+                    this.total +=1 ;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

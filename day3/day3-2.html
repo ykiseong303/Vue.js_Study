@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        전역필터, local 필터 사용
+    -->
+    <div id="app">
+        <input type="text" v-model="val">
+        <br>
+        {{ val | cnt1 }}
+        <br>
+        {{ val | cnt2 }}
+    </div>
+    <script>
+        // 전역필터 지정  
+        Vue.filter(
+            'cnt1',(value) => {
+                if(value.length == 0) return;
+                return `전역필터 사용 : ${value} : ${value.length}글자 작성 중`;
+            }
+        )
+        new Vue({
+            el : '#app',
+            data : {
+                val : '',
+            },
+            filters : {
+                cnt2(value) {
+                    if(value.length==0) return;
+                    return `지역필터 사용 : ${value} : ${value.length}글자 작성 중`;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
