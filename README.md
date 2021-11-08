@@ -15,3 +15,8 @@
   + @click
   + methods
   + json 객체 접근 
++ 3일차(21.11.08)
+  + computed, watch > 나중에 다시 복습
+  + methods
+  + filter
+  + component
