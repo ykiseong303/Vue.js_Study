@@ -27,3 +27,5 @@
   + Vue-cli환경 작업 구성
 + 6일차(21.11.12)
   + Vuetify framework, Vue BootStrap
++ 7일차(21.11.15)
+  + vuex
