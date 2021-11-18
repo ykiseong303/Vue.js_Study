@@ -29,3 +29,6 @@
   + Vuetify framework, Vue BootStrap
 + 7일차(21.11.15)
   + vuex
++ 8일차(21.11.18)
+  + 웹 프로젝트 진행 
+  + Spring boot + vue@cli (mvc&mvvm pattern)
